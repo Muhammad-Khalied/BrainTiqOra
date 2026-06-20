@@ -12,6 +12,7 @@ interface NavbarProps {
 
 export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
   const { theme, setTheme } = useTheme();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [content, setContent] = useState({
     brandName: 'Brain Tiq Ora',
     navLinks: [
@@ -41,16 +42,24 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
     fetchContent();
   }, []);
 
+  const handleTabClick = (id: string) => {
+    setActiveTab(id);
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass h-20 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 glass transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
         <div className="flex items-center gap-4">
-          <button className="md:hidden p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors font-headline">
+          <button 
+            className="md:hidden p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors font-headline"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
             <Menu className="w-6 h-6 text-primary" />
           </button>
           <div 
             className="flex items-center gap-3 cursor-pointer group"
-            onClick={() => setActiveTab('home')}
+            onClick={() => handleTabClick('home')}
           >
             <div className="logo-icon-kinetic group-hover:scale-110 transition-transform" />
             <span className="text-xl font-bold tracking-tight text-on-surface font-headline uppercase">
@@ -63,7 +72,7 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
           {content.navLinks.map((item: any) => (
             <button
               key={item.id}
-              onClick={() => setActiveTab(item.id)}
+              onClick={() => handleTabClick(item.id)}
               className={`font-headline font-medium text-sm tracking-tight transition-all px-4 py-2 rounded-lg relative ${
                 activeTab === item.id 
                   ? 'bg-surface-container-lowest shadow-sm border border-outline-variant text-on-surface' 
@@ -86,13 +95,44 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
           <motion.button 
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => setActiveTab('about')}
+            onClick={() => handleTabClick('about')}
             className="bg-primary text-white border border-outline-variant px-6 py-2.5 rounded-lg font-headline font-semibold text-sm hidden sm:flex items-center gap-2 shadow-geometric hover:bg-primary-dim transition-colors"
           >
             Get Started
           </motion.button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden absolute top-20 left-0 w-full bg-surface-container-low border-b border-outline-variant shadow-lg"
+        >
+          <nav className="flex flex-col p-4">
+            {content.navLinks.map((item: any) => (
+              <button
+                key={item.id}
+                onClick={() => handleTabClick(item.id)}
+                className={`text-left font-headline font-medium px-4 py-4 rounded-lg transition-colors ${
+                  activeTab === item.id 
+                    ? 'bg-primary/10 text-primary' 
+                    : 'text-on-surface-variant hover:bg-black/5 dark:hover:bg-white/5'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+            <button 
+              onClick={() => handleTabClick('about')}
+              className="mt-4 bg-primary text-white text-center px-4 py-4 rounded-lg font-headline font-semibold"
+            >
+              Get Started
+            </button>
+          </nav>
+        </motion.div>
+      )}
     </header>
   );
 }

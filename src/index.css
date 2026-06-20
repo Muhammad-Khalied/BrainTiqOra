@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-headline: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: var(--primary);
+  --color-primary-dim: var(--primary-dim);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-dim: var(--tertiary-dim);
+  --color-surface: var(--surface);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-outline-variant: var(--outline-variant);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-tertiary-container: var(--tertiary-container);
+
+  --radius-xl: 0.5rem;
+  --radius-2xl: 1rem;
+
+  --background-image-gradient-accent: var(--gradient-accent);
+}
+
+:root {
+  --primary: #4F46E5;
+  --primary-dim: #4338CA;
+  --secondary: #64748B;
+  --tertiary: #8B5CF6;
+  --tertiary-dim: #7C3AED;
+  --surface: #F8FAFC;
+  --on-surface: #0F1115;
+  --on-surface-variant: #475569;
+  --surface-container-low: #FFFFFF;
+  --surface-container-lowest: #FFFFFF;
+  --outline-variant: rgba(0, 0, 0, 0.08);
+  --primary-container: rgba(79, 70, 229, 0.1);
+  --on-primary-container: #4338CA;
+  --secondary-container: #F1F5F9;
+  --on-secondary-container: #475569;
+  --tertiary-container: #8B5CF6;
+  --gradient-accent: linear-gradient(135deg, #4F46E5 0%, #9333EA 100%);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glassy-bg: rgba(0, 0, 0, 0.03);
+}
+
+.dark {
+  --primary: #6366F1;
+  --primary-dim: #4F46E5;
+  --secondary: #475569;
+  --tertiary: #818CF8;
+  --tertiary-dim: #6366F1;
+  --surface: #0B0F19;
+  --on-surface: #F8FAFC;
+  --on-surface-variant: #94A3B8;
+  --surface-container-low: #151A23;
+  --surface-container-lowest: #151A23;
+  --outline-variant: rgba(255, 255, 255, 0.08);
+  --primary-container: rgba(99, 102, 241, 0.1);
+  --on-primary-container: #818CF8;
+  --secondary-container: #151A23;
+  --on-secondary-container: #94A3B8;
+  --tertiary-container: #818CF8;
+  --gradient-accent: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+  --glass-bg: rgba(11, 15, 25, 0.8);
+  --glassy-bg: rgba(255, 255, 255, 0.05);
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-body antialiased transition-colors duration-300 overflow-x-hidden;
+  }
+  
+  button, 
+  a, 
+  [role="button"], 
+  input[type="submit"], 
+  input[type="button"], 
+  select,
+  .cursor-pointer {
+    cursor: pointer !important;
+  }
+}
+
+.glass {
+  @apply backdrop-blur-xl border-b border-outline-variant;
+  background-color: var(--glass-bg);
+}
+
+.gradient-accent {
+  background: var(--background-image-gradient-accent);
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent;
+  background-image: var(--background-image-gradient-accent);
+}
+
+.shadow-geometric {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.1);
+}
+.dark .shadow-geometric {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+.card-geometric {
+  @apply bg-surface-container-low border border-outline-variant rounded-xl p-6 relative overflow-hidden transition-all duration-300;
+}
+
+.visual-block {
+  @apply absolute -top-5 -right-5 w-40 h-40 opacity-10 pointer-events-none;
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+}
+
+.logo-icon-kinetic {
+  @apply w-8 h-8 rounded-lg flex items-center justify-center;
+  background: var(--background-image-gradient-accent);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.1);
+}
+.dark .logo-icon-kinetic {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+.glassy {
+  @apply backdrop-blur-md border border-outline-variant;
+  background-color: var(--glassy-bg);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+
+

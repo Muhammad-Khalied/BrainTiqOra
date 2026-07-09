@@ -103,7 +103,7 @@
 
 /* Button Utilities */
 .btn-primary {
-  @apply bg-primary text-white border border-transparent px-8 py-3 rounded-full font-headline font-bold flex items-center justify-center gap-3 shadow-geometric hover:bg-primary-dim hover:scale-[1.02] transition-all duration-300;
+  @apply bg-primary text-white border border-transparent px-8 py-3 rounded-full font-headline font-bold flex items-center justify-center gap-3 hover:bg-primary-dim hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-black/5 dark:shadow-black/30;
 }
 
 .btn-secondary {
@@ -111,5 +111,5 @@
 }
 
 .btn-cta {
-  @apply bg-accent text-white border border-transparent px-8 py-3 rounded-full font-headline font-bold flex items-center justify-center gap-3 shadow-geometric hover:opacity-90 hover:scale-[1.02] transition-all duration-300;
+  @apply bg-accent text-white border border-transparent px-8 py-3 rounded-full font-headline font-bold flex items-center justify-center gap-3 hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-black/5 dark:shadow-black/30;
 }

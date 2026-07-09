@@ -76,7 +76,7 @@ export default function Portfolio() {
                 </div>
                 <div className="flex gap-3 mb-4 flex-wrap">
                   {project.tags?.map((tag: string) => (
-                    <span key={tag} className="px-3 py-1 bg-primary/5 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest rounded-md">
+                    <span key={tag} className="px-3 py-1 bg-primary/5 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full">
                       {tag}
                     </span>
                   ))}
@@ -109,9 +109,9 @@ export default function Portfolio() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-surface-container-low border border-outline-variant p-8 rounded-xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all hover:shadow-lg group"
+                className="bg-surface-container-low border border-outline-variant p-8 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all hover:shadow-lg group"
               >
-                <div className="w-10 h-10 bg-primary/10 rounded-lg rotate-45 group-hover:rotate-90 group-hover:bg-primary transition-all duration-500" />
+                <div className="w-10 h-10 bg-primary/10 rounded-2xl rotate-45 group-hover:rotate-90 group-hover:bg-primary transition-all duration-500" />
                 <span className="font-headline font-bold text-xs uppercase tracking-widest text-center group-hover:text-primary transition-colors">{tech}</span>
               </motion.div>
             ))}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import Logo from './Logo';
 
 export default function Footer() {
   const [content, setContent] = useState({
@@ -40,7 +41,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="logo-icon-kinetic" />
+              <Logo className="h-10 drop-shadow-md" />
               <span className="text-xl font-bold tracking-tight text-on-surface font-headline uppercase">{content.brandName}</span>
             </div>
             <p className="text-on-surface-variant max-w-md leading-relaxed">

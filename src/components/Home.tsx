@@ -49,12 +49,12 @@ export default function Home({ onStartProject, onExploreWork }: { onStartProject
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-primary/10 blur-[120px] rounded-full -z-10 pointer-events-none" 
+          className="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-primary/5 blur-[120px] rounded-[30%] -z-10 pointer-events-none" 
         />
         <motion.div 
           animate={{ rotate: -360 }}
           transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-1/4 -left-1/4 w-[800px] h-[800px] bg-tertiary/10 blur-[120px] rounded-full -z-10 pointer-events-none" 
+          className="absolute -bottom-1/4 -left-1/4 w-[800px] h-[800px] bg-secondary/10 blur-[120px] rounded-full -z-10 pointer-events-none" 
         />
 
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -86,14 +86,14 @@ export default function Home({ onStartProject, onExploreWork }: { onStartProject
             >
               <button 
                 onClick={onStartProject}
-                className="bg-primary text-white border border-outline-variant px-10 py-4 rounded-xl font-headline font-bold text-lg flex items-center justify-center gap-3 shadow-geometric hover:bg-primary-dim hover:scale-[1.02] transition-all duration-300"
+                className="btn-primary py-4 px-10 text-lg"
               >
                 Get Started
                 <ArrowRight className="w-5 h-5" />
               </button>
               <button 
                 onClick={onStartProject}
-                className="bg-surface-container-low border border-outline-variant px-10 py-4 rounded-xl font-headline font-bold text-lg hover:bg-black/5 dark:hover:bg-white/5 hover:scale-[1.02] transition-all duration-300"
+                className="btn-secondary py-4 px-10 text-lg"
               >
                 Contact Us
               </button>
@@ -117,9 +117,9 @@ export default function Home({ onStartProject, onExploreWork }: { onStartProject
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 0.3, scale: 1 }}
+              animate={{ opacity: 0.5, scale: 1 }}
               transition={{ duration: 1.5, delay: 0.5 }}
-              className="absolute -bottom-10 -right-10 w-40 h-40 gradient-accent rounded-full -z-10 blur-3xl" 
+              className="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary rounded-full -z-10 blur-3xl" 
             />
           </div>
         </div>
@@ -224,7 +224,7 @@ export default function Home({ onStartProject, onExploreWork }: { onStartProject
                   <p className="text-lg italic text-on-surface mb-10 leading-relaxed">"{test.quote}"</p>
                 </div>
                 <div className="flex items-center gap-4 border-t border-outline-variant pt-6">
-                  <div className="w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center text-white font-bold font-headline">
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold font-headline">
                     {test.author.charAt(0)}
                   </div>
                   <div>

@@ -83,7 +83,7 @@ export default function Services() {
                 className="card-geometric p-10 group hover:border-primary/40 transition-all duration-300 flex flex-col h-full hover:shadow-2xl relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform duration-500" />
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-tertiary/20 flex items-center justify-center text-primary mb-10 group-hover:scale-110 transition-transform duration-300 shadow-inner">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-10 group-hover:scale-110 transition-transform duration-300 shadow-inner">
                   <div className="w-8 h-8 *:w-full *:h-full">
                     {category.icon}
                   </div>

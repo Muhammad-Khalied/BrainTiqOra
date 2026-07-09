@@ -81,7 +81,7 @@ export default function About() {
             whileHover={{ y: -5 }}
             className="card-geometric p-12 relative overflow-hidden group shadow-lg"
           >
-            <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-accent" />
+            <div className="absolute top-0 left-0 w-1.5 h-full bg-primary" />
             <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
               <Eye className="w-8 h-8" />
             </div>
@@ -99,8 +99,8 @@ export default function About() {
             whileHover={{ y: -5 }}
             className="card-geometric p-12 relative overflow-hidden group shadow-lg"
           >
-            <div className="absolute top-0 right-0 w-1.5 h-full bg-gradient-accent" />
-            <div className="w-16 h-16 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary mb-8 group-hover:scale-110 group-hover:bg-tertiary group-hover:text-white transition-all duration-300">
+            <div className="absolute top-0 right-0 w-1.5 h-full bg-secondary" />
+            <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mb-8 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
               <Target className="w-8 h-8" />
             </div>
             <h3 className="font-headline text-3xl font-bold mb-4">Our Mission</h3>

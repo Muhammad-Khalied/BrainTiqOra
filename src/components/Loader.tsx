@@ -1,23 +1,16 @@
 import { motion } from 'motion/react';
+import Logo from './Logo';
 
 export default function Loader({ text = "Loading..." }: { text?: string }) {
   return (
     <div className="flex flex-col items-center justify-center py-32 space-y-8">
       <motion.div 
-        animate={{ 
-          rotate: [45, 225, 225, 405],
-          scale: [1, 1.2, 1, 1],
-          borderRadius: ["20%", "20%", "50%", "20%"]
-        }}
-        transition={{ 
-          duration: 2, 
-          ease: "easeInOut", 
-          times: [0, 0.5, 0.8, 1], 
-          repeat: Infinity 
-        }}
-        className="w-12 h-12 bg-primary relative"
+        animate={{ scale: [1, 1.1, 1], opacity: [0.8, 1, 0.8] }}
+        transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
+        className="relative"
       >
-        <div className="absolute inset-0 bg-primary opacity-50 blur-lg" />
+        <Logo className="h-16 w-auto" />
+        <div className="absolute inset-0 bg-primary opacity-20 blur-2xl -z-10 rounded-full" />
       </motion.div>
       <motion.div 
         animate={{ opacity: [0.5, 1, 0.5] }}

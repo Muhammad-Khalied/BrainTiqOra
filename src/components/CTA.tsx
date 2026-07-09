@@ -4,7 +4,7 @@ import { ArrowRight, Phone, MessageSquare, Mail } from 'lucide-react';
 export default function CTA({ onStartProject }: { onStartProject?: () => void; onExploreWork?: () => void }) {
   return (
     <section className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 gradient-accent opacity-5" />
+      <div className="absolute inset-0 bg-primary/5" />
       
       <div className="max-w-5xl mx-auto text-center relative z-10">
         <motion.div 
@@ -47,7 +47,7 @@ export default function CTA({ onStartProject }: { onStartProject?: () => void; o
         >
           <button 
             onClick={onStartProject}
-            className="bg-primary text-white border border-outline-variant px-10 py-5 rounded-xl font-headline font-bold text-lg flex items-center justify-center gap-3 shadow-geometric hover:bg-primary-dim hover:scale-105 transition-all"
+            className="btn-cta py-4 px-10 text-lg"
           >
             Start Your Project
             <ArrowRight className="w-5 h-5" />
@@ -55,7 +55,7 @@ export default function CTA({ onStartProject }: { onStartProject?: () => void; o
           
           <a 
             href="tel:+201140350305"
-            className="bg-surface-container-low border border-outline-variant px-10 py-5 rounded-xl font-headline font-bold text-lg hover:bg-black/5 dark:hover:bg-white/5 hover:scale-105 transition-all flex items-center justify-center gap-3 text-on-surface"
+            className="btn-secondary py-4 px-10 text-lg flex items-center justify-center gap-3"
           >
             <Phone className="w-5 h-5 text-primary" />
             +20 114 035 0305
@@ -83,8 +83,8 @@ export default function CTA({ onStartProject }: { onStartProject?: () => void; o
       {/* Decorative Elements */}
       <div className="absolute top-10 left-10 w-24 h-24 border border-primary/20 rounded-full" />
       <div className="absolute bottom-10 right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
-      <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-tertiary rounded-full blur-sm opacity-50" />
-      <div className="absolute bottom-1/4 right-1/4 w-6 h-6 border-2 border-primary/30 rounded-lg rotate-12" />
+      <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-accent rounded-full blur-sm opacity-50" />
+      <div className="absolute bottom-1/4 right-1/4 w-6 h-6 border-2 border-primary/30 rounded-full" />
     </section>
   );
 }

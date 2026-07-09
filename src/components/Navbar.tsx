@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useTheme } from './ThemeProvider';
+import Logo from './Logo';
 
 interface NavbarProps {
   activeTab: string;
@@ -61,8 +62,8 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => handleTabClick('home')}
           >
-            <div className="logo-icon-kinetic group-hover:scale-110 transition-transform" />
-            <span className="text-xl font-bold tracking-tight text-on-surface font-headline uppercase">
+            <Logo className="h-10 drop-shadow-md group-hover:scale-105 transition-transform" />
+            <span className="text-xl font-bold tracking-tight text-on-surface font-headline uppercase hidden sm:block">
               {content.brandName}
             </span>
           </div>
@@ -92,14 +93,12 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
             {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
           
-          <motion.button 
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+          <button 
             onClick={() => handleTabClick('about')}
-            className="bg-primary text-white border border-outline-variant px-6 py-2.5 rounded-lg font-headline font-semibold text-sm hidden sm:flex items-center gap-2 shadow-geometric hover:bg-primary-dim transition-colors"
+            className="btn-primary hidden sm:flex py-2 px-6 text-sm"
           >
             Get Started
-          </motion.button>
+          </button>
         </div>
       </div>
 
@@ -126,7 +125,7 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
             ))}
             <button 
               onClick={() => handleTabClick('about')}
-              className="mt-4 bg-primary text-white text-center px-4 py-4 rounded-lg font-headline font-semibold"
+              className="mt-4 btn-primary w-full py-3"
             >
               Get Started
             </button>

@@ -62,10 +62,7 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => handleTabClick('home')}
           >
-            <Logo className="h-10 drop-shadow-md group-hover:scale-105 transition-transform" />
-            <span className="text-xl font-bold tracking-tight text-on-surface font-headline uppercase hidden sm:block">
-              {content.brandName}
-            </span>
+            <Logo className="h-16 drop-shadow-md group-hover:scale-105 transition-transform" />
           </div>
         </div>
 

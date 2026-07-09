@@ -50,7 +50,7 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
         <div className="flex items-center gap-4">
           <button 
             className="md:hidden p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors font-headline"
@@ -62,7 +62,7 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => handleTabClick('home')}
           >
-            <Logo className="h-16 drop-shadow-md group-hover:scale-105 transition-transform" />
+            <Logo className="h-24 drop-shadow-md group-hover:scale-105 transition-transform" />
           </div>
         </div>
 

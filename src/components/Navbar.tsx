@@ -30,10 +30,10 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
         const docSnap = await getDoc(doc(db, 'settings', 'branding'));
         if (docSnap.exists()) {
           const data = docSnap.data();
-          setContent(prev => ({ 
-            ...prev, 
+          setContent(prev => ({
+            ...prev,
             brandName: data.brandName || prev.brandName,
-            navLinks: data.navLinks || prev.navLinks 
+            navLinks: data.navLinks || prev.navLinks
           }));
         }
       } catch (error) {
@@ -50,19 +50,19 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
         <div className="flex items-center gap-4">
-          <button 
+          <button
             className="md:hidden p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors font-headline"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <Menu className="w-6 h-6 text-primary" />
           </button>
-          <div 
+          <div
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => handleTabClick('home')}
           >
-            <Logo className="h-24 drop-shadow-md group-hover:scale-105 transition-transform" />
+            <Logo className="h-16 drop-shadow-md group-hover:scale-105 transition-transform" />
           </div>
         </div>
 
@@ -71,11 +71,10 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
             <button
               key={item.id}
               onClick={() => handleTabClick(item.id)}
-              className={`font-headline font-medium text-sm tracking-tight transition-all px-4 py-2 rounded-lg relative ${
-                activeTab === item.id 
-                  ? 'bg-surface-container-lowest shadow-sm border border-outline-variant text-on-surface' 
+              className={`font-headline font-medium text-sm tracking-tight transition-all px-4 py-2 rounded-lg relative ${activeTab === item.id
+                  ? 'bg-surface-container-lowest shadow-sm border border-outline-variant text-on-surface'
                   : 'text-on-surface-variant hover:text-on-surface hover:bg-black/5 dark:hover:bg-white/5 border border-transparent'
-              }`}
+                }`}
             >
               {item.label}
             </button>
@@ -83,14 +82,14 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
         </nav>
 
         <div className="flex items-center gap-4">
-          <button 
+          <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             className="p-2 text-on-surface-variant hover:text-primary hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center"
           >
             {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
-          
-          <button 
+
+          <button
             onClick={() => handleTabClick('about')}
             className="btn-primary hidden sm:flex py-2 px-6 text-sm"
           >
@@ -101,7 +100,7 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden absolute top-20 left-0 w-full bg-surface-container-low border-b border-outline-variant shadow-lg"
@@ -111,16 +110,15 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
               <button
                 key={item.id}
                 onClick={() => handleTabClick(item.id)}
-                className={`text-left font-headline font-medium px-4 py-4 rounded-lg transition-colors ${
-                  activeTab === item.id 
-                    ? 'bg-primary/10 text-primary' 
+                className={`text-left font-headline font-medium px-4 py-4 rounded-lg transition-colors ${activeTab === item.id
+                    ? 'bg-primary/10 text-primary'
                     : 'text-on-surface-variant hover:bg-black/5 dark:hover:bg-white/5'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>
             ))}
-            <button 
+            <button
               onClick={() => handleTabClick('about')}
               className="mt-4 btn-primary w-full py-3"
             >
